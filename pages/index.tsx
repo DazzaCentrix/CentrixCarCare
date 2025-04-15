@@ -1,17 +1,11 @@
-pages/index.tsx
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { Calendar } from "@/components/ui/calendar";
-import { Textarea } from "@/components/ui/textarea";
 
 function Label({ children }: { children: React.ReactNode }) {
   return <label className="block text-sm font-medium text-gray-700 mb-1">{children}</label>;
 }
 
 export default function CentrixBooking() {
-  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [date, setDate] = useState<string>("");
 
   return (
     <div className="min-h-screen bg-white text-black p-6 space-y-8">
@@ -28,61 +22,66 @@ export default function CentrixBooking() {
       </header>
 
       <section className="grid gap-6 max-w-2xl mx-auto">
-        <Card>
-          <CardContent className="p-6 space-y-4">
-            <h2 className="text-2xl font-semibold">Book an Appointment</h2>
+        <div className="border rounded-lg shadow p-6 space-y-4">
+          <h2 className="text-2xl font-semibold">Book an Appointment</h2>
 
-            <div>
-              <Label>Your Name</Label>
-              <Input placeholder="John Doe" />
-            </div>
+          <div>
+            <Label>Your Name</Label>
+            <input className="w-full border border-gray-300 rounded-md p-2" placeholder="John Doe" />
+          </div>
 
-            <div>
-              <Label>Phone Number</Label>
-              <Input type="tel" placeholder="e.g. 06 12345678" />
-            </div>
+          <div>
+            <Label>Phone Number</Label>
+            <input type="tel" className="w-full border border-gray-300 rounded-md p-2" placeholder="e.g. 06 12345678" />
+          </div>
 
-            <div>
-              <Label>Email</Label>
-              <Input type="email" placeholder="you@example.com" />
-            </div>
+          <div>
+            <Label>Email</Label>
+            <input type="email" className="w-full border border-gray-300 rounded-md p-2" placeholder="you@example.com" />
+          </div>
 
-            <div>
-              <Label>Choose Service</Label>
-              <select className="w-full border border-gray-300 rounded-md p-2">
-                <option>APK Inspection & Certification</option>
-                <option>Car Interior & Exterior Detailing</option>
-                <option>Battery Replacement</option>
-                <option>Car Electrical Work</option>
-                <option>Wheel Alignment</option>
-                <option>Brake Service</option>
-                <option>Full Diagnostic Check</option>
-              </select>
-            </div>
+          <div>
+            <Label>Choose Service</Label>
+            <select className="w-full border border-gray-300 rounded-md p-2">
+              <option>APK Inspection & Certification</option>
+              <option>Car Interior & Exterior Detailing</option>
+              <option>Battery Replacement</option>
+              <option>Car Electrical Work</option>
+              <option>Wheel Alignment</option>
+              <option>Brake Service</option>
+              <option>Full Diagnostic Check</option>
+            </select>
+          </div>
 
-            <div>
-              <Label>Preferred Date</Label>
-              <Calendar mode="single" selected={date} onSelect={setDate} className="rounded-md border" />
-            </div>
+          <div>
+            <Label>Preferred Date</Label>
+            <input
+              type="date"
+              className="w-full border border-gray-300 rounded-md p-2"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
 
-            <div>
-              <Label>Additional Notes</Label>
-              <Textarea placeholder="Anything we should know?" />
-            </div>
+          <div>
+            <Label>Additional Notes</Label>
+            <textarea className="w-full border border-gray-300 rounded-md p-2" placeholder="Anything we should know?" />
+          </div>
 
-            <div>
-              <Label>Payment Method</Label>
-              <select className="w-full border border-gray-300 rounded-md p-2">
-                <option>Debit Card</option>
-                <option>Cash</option>
-                <option>Crypto</option>
-                <option>Other (e.g. Gold Chain)</option>
-              </select>
-            </div>
+          <div>
+            <Label>Payment Method</Label>
+            <select className="w-full border border-gray-300 rounded-md p-2">
+              <option>Debit Card</option>
+              <option>Cash</option>
+              <option>Crypto</option>
+              <option>Other (e.g. Gold Chain)</option>
+            </select>
+          </div>
 
-            <Button className="w-full mt-4">Submit Booking</Button>
-          </CardContent>
-        </Card>
+          <button className="w-full mt-4 bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition">
+            Submit Booking
+          </button>
+        </div>
       </section>
 
       <section className="max-w-2xl mx-auto text-center space-y-4">
@@ -115,3 +114,4 @@ export default function CentrixBooking() {
     </div>
   );
 }
+
