@@ -1,11 +1,15 @@
 import { useState } from "react";
 
-function Label({ children }: { children: React.ReactNode }) {
-  return <label className="block text-sm font-medium text-gray-700 mb-1">{children}</label>;
+function Label({ children }) {
+  return (
+    <label className="block text-sm font-medium text-gray-700 mb-1">
+      {children}
+    </label>
+  );
 }
 
 export default function CentrixBooking() {
-  const [date, setDate] = useState<string>("");
+  const [date, setDate] = useState("");
 
   return (
     <div className="min-h-screen bg-white text-black p-6 space-y-8">
@@ -27,17 +31,28 @@ export default function CentrixBooking() {
 
           <div>
             <Label>Your Name</Label>
-            <input className="w-full border border-gray-300 rounded-md p-2" placeholder="John Doe" />
+            <input
+              className="w-full border border-gray-300 rounded-md p-2"
+              placeholder="John Doe"
+            />
           </div>
 
           <div>
             <Label>Phone Number</Label>
-            <input type="tel" className="w-full border border-gray-300 rounded-md p-2" placeholder="e.g. 06 12345678" />
+            <input
+              type="tel"
+              className="w-full border border-gray-300 rounded-md p-2"
+              placeholder="e.g. 06 12345678"
+            />
           </div>
 
           <div>
             <Label>Email</Label>
-            <input type="email" className="w-full border border-gray-300 rounded-md p-2" placeholder="you@example.com" />
+            <input
+              type="email"
+              className="w-full border border-gray-300 rounded-md p-2"
+              placeholder="you@example.com"
+            />
           </div>
 
           <div>
@@ -65,7 +80,10 @@ export default function CentrixBooking() {
 
           <div>
             <Label>Additional Notes</Label>
-            <textarea className="w-full border border-gray-300 rounded-md p-2" placeholder="Anything we should know?" />
+            <textarea
+              className="w-full border border-gray-300 rounded-md p-2"
+              placeholder="Anything we should know?"
+            />
           </div>
 
           <div>
@@ -91,7 +109,7 @@ export default function CentrixBooking() {
           width="100%"
           height="300"
           style={{ border: 0 }}
-          allowFullScreen={true}
+          allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
